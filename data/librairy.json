@@ -1,0 +1,36 @@
+[{
+    "id": 1,
+    "title": "title 1",
+    "author": "author 1",
+    "nationality": "FR"
+},{
+    "id": 2,
+    "title": "title 2",
+    "author": "author 2",
+    "nationality": "EN"
+},{
+    "id": 3,
+    "title": "title 3",
+    "author": "author 3",
+    "nationality": "JA"
+},{
+    "id": 4,
+    "title": "title 4",
+    "author": "author 4",
+    "nationality": "EN"
+},{
+    "id": 5,
+    "title": "title 5",
+    "author": "author 5",
+    "nationality": "SP"
+},{
+    "id": 6,
+    "title": "title 6",
+    "author": "author 6",
+    "nationality": "FR"
+},{
+    "id": 7,
+    "title": "title 7",
+    "author": "author 7",
+    "nationality": "FR"
+}]
