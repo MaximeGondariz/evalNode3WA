@@ -2,12 +2,34 @@ import { writeData, readData } from "../../utils/files.js";
 
 export function getBooks(req, res) {
   try {
-    const books = readData();
+    var books = readData();
+
+    books = books.sort((a, b) => {
+      if (a.title < b.title) {
+        return -1;
+      }
+    });
+
     res.send(books);
   } catch (error) {
     res.send("ERROR 404");
   }
 }
+
+export function getBooksByAuthor(req, res) {
+  try {
+    const { author } = req.params;
+
+    var books = readData();
+
+    const filteredBooks = books.filter((book) => {return book.author === author;})
+
+    res.send(filteredBooks);
+  } catch (error) {
+    res.send("ERROR 404");
+  }
+}
+
 export function getOneBook(req, res) {
   try {
     const books = readData();

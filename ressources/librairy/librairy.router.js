@@ -1,6 +1,7 @@
 import { Router } from "express";
 import {
   getBooks,
+  getBooksByAuthor,
   getOneBook,
   addOneBook,
   updateOneBook,
@@ -12,6 +13,8 @@ import verifyPayload from "./../../middleware/verifyPayload.js";
 const router = Router();
 
 router.route("").get(getBooks).post(verifyPayload, addOneBook);
+
+router.route("/author/:author").get(getBooksByAuthor);
 
 router.route("/:id").get(getOneBook).put(updateOneBook).delete(deleteOneBook);
 
