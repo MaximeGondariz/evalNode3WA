@@ -1,26 +1,28 @@
-const axios = require('axios');
-const fs = require('fs');
-const path = require('path');
+import { writeFileSync, readFileSync } from "fs";
+import { fileURLToPath } from "url";
+import { dirname, join } from "path";
 
-const productsPath = path.join(__dirname, '..', 'data', 'librairy.json');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const librairyPath = join(__dirname, "..", "data", "librairy.json");
 
 function writeData(content) {
   try {
-    fs.writeFileSync(productsPath, JSON.stringify(content));
+    writeFileSync(librairyPath, JSON.stringify(content));
   } catch (err) {
-    console.error('Error writing file : ', err.message);
+    console.error("Error writing file : ", err.message);
   }
 }
 
 function readData() {
   try {
-    const products = fs.readFileSync(productsPath, 'utf-8');
+    const books = readFileSync(librairyPath, "utf-8");
 
-    return JSON.parse(products); // string ==> Tableau JS
+    return JSON.parse(books);
   } catch (err) {
-    console.error('Error reading file : ', err.message);
+    console.error("Error reading file : ", err.message);
   }
 }
 
-exports.writeData = writeData; //exports = module.exports
-exports.readData = readData;
+export { writeData };
+export { readData };
